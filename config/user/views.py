@@ -25,3 +25,15 @@ def demo_id(request, id):
 
 def test_converter(request, year):
     return HttpResponse('自定义转换器启动成功')
+
+
+def test_re_path(request, year):
+    return HttpResponse(f'test_re_path:{year}------')
+
+
+def test_month_re_path(request, year, month):
+    return HttpResponse(f'test_month_re_path:{year}--{month}------')
+
+
+def test_repath_standard(request, year):
+    return HttpResponse(f'test_repath_standard:{year}')
