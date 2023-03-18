@@ -45,3 +45,7 @@ def get_info(request, page=1):
 
 def other_arg(request, info):
     return HttpResponse(f"额外的参数：{info}")
+
+
+def page_not_found(request, exception):
+    return HttpResponse("自定义的404页面")

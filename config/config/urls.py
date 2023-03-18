@@ -24,3 +24,6 @@ urlpatterns = [
     path('login', login),
     path('', include(urls))
 ]
+#  自定义错误页面, 这个自定义的错误页面必须在主url.py页面里面加入
+#  还需要注意一点，需要将debug模式关闭，允许访问的地址更改为*
+handler404 = 'user.views.page_not_found'  # 后面是对应404错误的地址
