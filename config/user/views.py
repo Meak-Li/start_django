@@ -37,3 +37,11 @@ def test_month_re_path(request, year, month):
 
 def test_repath_standard(request, year):
     return HttpResponse(f'test_repath_standard:{year}')
+
+
+def get_info(request, page=1):
+    return HttpResponse(f"默认值: {page}")
+
+
+def other_arg(request, info):
+    return HttpResponse(f"额外的参数：{info}")

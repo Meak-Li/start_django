@@ -28,4 +28,7 @@ urlpatterns = [
     # re_path(r'^re/(?P<year>[0-9]{4})', test_re_path), # 正则，(P<name>pattern)  # 先匹配到后不会匹配到下面的url
     re_path(r'^re/(?P<year>[0-9]{4})/(?P<month>[0-9]{2})', test_month_re_path),  # 正则，(P<name>pattern)
     re_path(r'^re/(?:year-(?P<year>[0-9]{4}))', test_repath_standard),  # 正则标准的，嵌入一个字符串
+    path('blog', get_info),  # 默认值, 是使用的两个url地址，没有输入参数的时候，匹配此url， 有参数的时候走的是下面的url
+    path('blog/<int:page>', get_info),  # 默认值
+    path('other_arg', other_arg, {'info': '2023年'}),  # 额外参数, 写在后面
 ]
