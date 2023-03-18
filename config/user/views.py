@@ -1,5 +1,7 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, HttpResponse
 from django.conf import settings
+from django.urls import reverse
 
 name = settings.NAME
 
@@ -49,3 +51,19 @@ def other_arg(request, info):
 
 def page_not_found(request, exception):
     return HttpResponse("自定义的404页面")
+
+
+def index(request):
+    return HttpResponse("success")
+
+
+def index_page(request):
+    return HttpResponse("success")
+
+
+def redirect_to_index(request):
+    print("+" * 40)
+    print(reverse('ind'))
+    print(reverse('in_page', args=(100,)))
+    print("+" * 40)
+    return HttpResponseRedirect(reverse('ind'))

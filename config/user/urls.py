@@ -31,4 +31,7 @@ urlpatterns = [
     path('blog', get_info),  # 默认值, 是使用的两个url地址，没有输入参数的时候，匹配此url， 有参数的时候走的是下面的url
     path('blog/<int:page>', get_info),  # 默认值
     path('other_arg', other_arg, {'info': '2023年'}),  # 额外参数, 写在后面
+    path('index', index, name='ind'),
+    path('index/<int:page>', index_page, name='in_page'),
+    path('reverse', redirect_to_index),
 ]

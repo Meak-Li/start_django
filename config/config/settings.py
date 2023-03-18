@@ -25,7 +25,7 @@ NAME = "Meak"
 SECRET_KEY = 'django-insecure-i1_47)-)072vac=1kalf*+i5ao79v7z&re!fytq*3ug@mpczmy'  # 记录网路的会话，加盐数据
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # 调试模式
+DEBUG = True  # 调试模式
 
 ALLOWED_HOSTS = ['*']  # 允许访问的域名，* *.baidu.com
 
