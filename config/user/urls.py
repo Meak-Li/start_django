@@ -20,6 +20,7 @@ from .views import *
 
 # 注册转换器
 register_converter(YearConverter, 'yy')
+app_name = 'user'  # 命名空间，帮助在反向解析的时候容易区分不开  使用时：reverse(user:in_page)
 urlpatterns = [
     path('test', test),
     path('demo', demo),

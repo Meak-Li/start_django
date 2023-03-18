@@ -63,7 +63,7 @@ def index_page(request):
 
 def redirect_to_index(request):
     print("+" * 40)
-    print(reverse('ind'))
-    print(reverse('in_page', args=(100,)))
+    print(reverse('user:ind'))  # 命名空间的使用
+    print(reverse('user:in_page', args=(100,)))
     print("+" * 40)
-    return HttpResponseRedirect(reverse('ind'))
+    return HttpResponseRedirect(reverse('user:ind'))  # 命名空间的使用
