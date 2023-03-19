@@ -74,6 +74,3 @@ class Area(models.Model):
 
 class Persons(models.Model):
     friends = models.ManyToManyField('self')  # 多对多的关系，主播与粉丝的关系，链接与友情链接
-
-
-

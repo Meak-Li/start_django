@@ -13,3 +13,8 @@ python manage.py inspectdb > model_app/models.py
 BooleanField, CharField, ....官网上面有
 UUIDField(primary_key=True, defult=uuid.uuid4) 唯一
 ~~~
+
+### 测试模型的方法
+~~~
+python manage.py shell
+~~~
