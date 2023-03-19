@@ -144,3 +144,21 @@ c.refresh_from_db()
 2.
     Cook.objects.filter(age__lt=18).delete()
 ~~~
+## Q对象
+~~~
+Waiter.objects.filter(induction="2023-6-6").filter(name='xx')
+Waiter.objects.filter(induction="2023-6-6", name='xx' )
+
+from django.db.models import Q
+Cook.objects.filter(Q(level=6) | Q(sect='xx'))  # or
+Cook.objects.filter(Q(id=4), Q(level=6) | Q(sect='xx'))  # 组合or，也可以使用and &
+Cook.objects.filter(~Q(id=4), Q(level=6) | Q(sect='xx'))  # ~ 取反
+Cook.objects.filter(~Q(id=4), Q(level=6) | Q(sect='xx'), id=4)  # Q对象写完才能写其他的过滤条件
+~~~
+## F对象，同一个对象里面比较不同的字段
+~~~
+from django.db.models import F
+Salary.objects.filter(seniority=F('outstand'))
+Salary.objects.filter(outstand__gt=F('seniority')+1)
+Salary.objects.update(seniority=F('seniority')+1) # 批量更新
+~~~
