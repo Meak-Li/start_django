@@ -64,3 +64,16 @@ class PersonLanguage(models.Model):
     restaurant = models.ForeignKey(Person, on_delete=models.CASCADE,
                                    related_name="restaurant_person")  # related_name反向引用的名字
     level = models.CharField(choices=LEVEL, max_length=32)  # 可选字段的写法
+
+
+# 自关联model，主要用于地区之间的关联，评论与回复等等地方
+class Area(models.Model):
+    name = models.CharField(max_length=32)
+    pid = models.ForeignKey('self', on_delete=models.CASCADE)  # 一对多的关系，省，市，区
+
+
+class Persons(models.Model):
+    friends = models.ManyToManyField('self')  # 多对多的关系，主播与粉丝的关系，链接与友情链接
+
+
+
