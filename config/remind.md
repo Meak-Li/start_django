@@ -118,3 +118,19 @@ Cook.objects.aggregate(Max('age'), Min('age'), Avg('age'), Sum('age'))
 Cook.objects.values('sect').annotate(Min('level')).filter(sect='xx')
 Cook.objects.filter(sect='xx').values('sect').annotate(Min('level'))
 ~~~
+## 修改数据
+1. 先获取对象，通过对象的属性更新数据，在保存（更新单条数据）
+2. 通过QuerySet的update函数来更新数据（更新多条数据）
+~~~
+1.
+    c = Cook.objects.get(pk=1)
+    c.name = 'xxx'
+    c.save()
+2.
+    Cook.objects.filter(sect='xx').update(level=8)
+~~~
+### 刷新数据
+~~~
+c = Cook.objects.get(pk=1)
+c.refresh_from_db()
+~~~
