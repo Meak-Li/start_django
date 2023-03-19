@@ -134,3 +134,13 @@ Cook.objects.filter(sect='xx').values('sect').annotate(Min('level'))
 c = Cook.objects.get(pk=1)
 c.refresh_from_db()
 ~~~
+### 删除数据（一般不会真实删除，而是逻辑删除）
+1. 先获取对象，通过对象调用delete函数（删除单一数据）
+2. 通过QuerySet的delete函数删除（删除多条数据）
+~~~
+1.
+    c = Cook.objects.get(pk=1)
+    c.delete()
+2.
+    Cook.objects.filter(age__lt=18).delete()
+~~~
