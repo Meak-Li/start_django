@@ -162,3 +162,18 @@ Salary.objects.filter(seniority=F('outstand'))
 Salary.objects.filter(outstand__gt=F('seniority')+1)
 Salary.objects.update(seniority=F('seniority')+1) # 批量更新
 ~~~
+## 使用原生的sql
+~~~
+1. 使用model进行执行
+    Cook.objects.raw("select id, name, level from t_cook where id=1")
+    Cook.objects.raw("select id, name, level from t_cook where id=1")[0]
+    Cook.objects.raw("select id, name, level from t_cook where id=1")[0].age
+    Cook.objects.raw("select id, name, level from t_cook where id=1")[0].name # 必须有id
+    Cook.objects.raw("select id, name, level as l from t_cook where id=1")[0].name
+    Cook.objects.raw("select id, name, level as l from t_cook where id=%s", [6])[0].name
+2.
+    from django.db import connection as con
+    cur = con.cursor()
+    cur.execute("select * from t_cook")
+    cur.fetchone()
+~~~
