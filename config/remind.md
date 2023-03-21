@@ -183,3 +183,9 @@ HttpResponseNotFound
 HttpResponse(status=404)
 Http404('error3')
 ~~~
+## 函数装饰器
+~~~
+@require_http_methods(['POST','GET'])
+@require_GET
+@login_required(login_url='/go_login/')
+~~~
