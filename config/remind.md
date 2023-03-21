@@ -189,3 +189,8 @@ Http404('error3')
 @require_GET
 @login_required(login_url='/go_login/')
 ~~~
+## HttpRequest
+~~~
+~~~
+
+getlist 可以获取多个值，例如勾选爱好的时候
