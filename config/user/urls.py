@@ -35,4 +35,7 @@ urlpatterns = [
     path('index', index, name='ind'),
     path('index/<int:page>', index_page, name='in_page'),
     path('reverse', redirect_to_index),
+    path('error1', error1),
+    path('error2', error2),
+    path('error3', error3),
 ]

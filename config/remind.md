@@ -177,3 +177,9 @@ Salary.objects.update(seniority=F('seniority')+1) # 批量更新
     cur.execute("select * from t_cook")
     cur.fetchone()
 ~~~
+## 返回一个错误的响应
+~~~
+HttpResponseNotFound
+HttpResponse(status=404)
+Http404('error3')
+~~~

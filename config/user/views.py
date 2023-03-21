@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseNotFound, Http404
 from django.shortcuts import render, HttpResponse
 from django.conf import settings
 from django.urls import reverse
@@ -67,3 +67,16 @@ def redirect_to_index(request):
     print(reverse('user:in_page', args=(100,)))
     print("+" * 40)
     return HttpResponseRedirect(reverse('user:ind'))  # 命名空间的使用
+
+
+# 错误信息
+def error1(request):
+    return HttpResponseNotFound('error1')
+
+
+def error2(request):
+    return HttpResponse(status=404)
+
+
+def error3(request):
+    return Http404('error3')
