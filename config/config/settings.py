@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 from django.conf import global_settings
 
@@ -17,6 +17,9 @@ from django.conf import global_settings
 BASE_DIR = Path(__file__).resolve().parent.parent  # 基础路径，当前项目的根目录
 
 NAME = "Meak"
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -32,6 +35,7 @@ ALLOWED_HOSTS = ['*']  # 允许访问的域名，* *.baidu.com
 # Application definition
 
 INSTALLED_APPS = [
+    'simpleui',  # 必须放在第一个
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -143,3 +147,6 @@ STATIC_URL = '/static/'  # 静态文件的路径
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'  # 默认组件的相应的类型
+
+
+SIMPLEUI_DEFAULT_THEME = 'admin.lte.css'
